@@ -1,0 +1,54 @@
+.root {
+  display: inline-flex;
+  height: 2rem;
+  margin: 0;
+  padding: 0 .5rem;
+  color: rgb(149, 133, 163);
+  text-decoration: none;
+  background: rgba(9, 30, 66, 0.04);
+  border-radius: 6px;
+  font-size: inherit;
+  font-style: normal;
+  font-weight: normal;
+  max-width: 100%;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  vertical-align: middle;
+  width: auto;
+
+  box-shadow: rgba(37, 11, 54, 0.04) 0 2px 0;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(216, 210, 222) rgb(216, 210, 222) rgb(209, 202, 216);
+
+  &:hover {
+    background: rgba(9, 30, 66, 0.1);
+  }
+}
+
+.wrapper {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  align-self: center;
+}
+
+.icon {
+  display: flex;
+  align-self: center;
+  flex-shrink: 0;
+  user-select: none;
+  margin: 0 .25rem;
+}
+
+.text {
+  align-items: baseline;
+  align-self: baseline;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1 1 auto;
+  margin: 0 .25rem;
+  overflow: hidden;
+  transition: opacity 0.3s ease 0s;
+}
