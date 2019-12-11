@@ -31,7 +31,19 @@
   display: inline-flex;
   flex-wrap: nowrap;
   align-self: center;
+  flex-basis: 100%;
 }
+
+.wrapperCenter {
+  justify-content: center;
+}
+.wrapperSpaceAround {
+  justify-content: space-around;
+}
+.wrapperSpaceBetween {
+  justify-content: space-between;
+}
+
 
 .icon {
   display: flex;
@@ -44,10 +56,10 @@
 .text {
   align-items: baseline;
   align-self: baseline;
-  max-width: 100%;
+  //max-width: 100%;
   text-overflow: ellipsis;
   white-space: nowrap;
-  flex: 1 1 auto;
+  //flex: 1 1 auto;
   margin: 0 .25rem;
   overflow: hidden;
   transition: opacity 0.3s ease 0s;

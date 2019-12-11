@@ -12,8 +12,14 @@ const Button = props => {
     type = "button",
     iconStart,
     iconEnd,
+    justifyContent = "Center",
     ...other
   } = props;
+
+  const wrapperClasses = [
+    styles.wrapper,
+    styles["wrapper" + justifyContent],
+  ];
 
   return (
     <Component
@@ -21,7 +27,7 @@ const Button = props => {
       className={styles.root}
       {...other}>
 
-      <span className={styles.wrapper}>
+      <span className={wrapperClasses.join(" ")}>
 
         {iconStart &&
           <span className={styles.icon}>
@@ -55,6 +61,8 @@ Button.propTypes = {
   type: PropTypes.string,
   iconStart: PropTypes.node,
   iconEnd: PropTypes.node,
+
+  justifyContent: PropTypes.oneOf(["Center", "SpaceAround", "SpaceBetween"]),
 
   other: PropTypes.object,
 };
