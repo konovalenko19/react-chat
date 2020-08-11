@@ -1,0 +1,33 @@
+.Logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+
+  &__Icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    background-color: #fff;
+    border-radius: 50%;
+    margin-right: 1rem;
+    position: relative;
+    top: .25rem;
+    box-shadow: 0 1px 2px rgba(0,0,0,.15);
+
+    svg {
+      width: 1.2rem;
+      height: 1.2rem;
+      fill: #0651b8;
+    }
+  }
+
+  &__Text {
+    font-family: "Pacifico", cursive;
+    font-size: 2rem;
+    text-align: center;
+    color: inherit;
+  }
+}

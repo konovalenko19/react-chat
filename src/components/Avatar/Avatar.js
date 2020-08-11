@@ -1,34 +1,42 @@
 import React from "react";
 import PropTypes from "prop-types";
+import classnames from "classnames";
 
-import styles from "./Avatar.module.scss";
+import "./Avatar.scss";
 
 const Avatar = props => {
   const {
+
+    // standart
     component: Component = "div",
-    classes,
     className,
     children,
+
+    // component
     isRounded = false,
-    sizes = "2rem",
+    size = "2rem",
+    style,
+
+    // Image
     alt,
     src,
     imgProps,
-    style,
+
     ...other
   } = props;
 
-  const allClasses = [styles.root];
-  isRounded && allClasses.push(styles.rounded);
-
   return (
     <Component
-      className={allClasses.join(" ")}
+      className={classnames(
+        "Avatar",
+        isRounded && "Avatar--Rounded",
+        className && className,
+      )}
       tabIndex={0}
       style={{
         ...style,
-        width: sizes,
-        height: sizes,
+        width: size,
+        height: size,
       }}
       {...other}>
 
@@ -36,7 +44,7 @@ const Avatar = props => {
         <img
           alt={alt}
           src={src}
-          className={styles.image}
+          className={"Avatar__Image"}
           {...imgProps}
         />
       }
@@ -49,7 +57,6 @@ const Avatar = props => {
 
 Avatar.propTypes = {
   component: PropTypes.string,
-  classes: PropTypes.array,
   className: PropTypes.string,
   children: PropTypes.node,
 

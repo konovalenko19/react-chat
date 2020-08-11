@@ -1,0 +1,66 @@
+.ChatListItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: .5rem 1rem;
+
+  appearance: none;
+  background-color: transparent;
+  text-align: left;
+  font-size: inherit;
+  font-style: inherit;
+  width: 100%;
+  border: 0;
+  transition: background-color .118s ease;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid #ececec;
+  }
+
+  &:hover {
+    background-color: #fff;
+    color: #222;
+  }
+
+  &:focus {
+    outline: 0;
+    background-color: #e1dfdf;
+  }
+
+  &:active {
+    background-color: #fff;
+  }
+
+  &--Active {
+    &,
+    &:hover,
+    &:focus {
+      background-color: #6200ee;
+      color: #e5dbf4;
+    }
+  }
+
+  &__Avatar {
+    padding: .5rem 0;
+  }
+
+  &__Data {
+    margin-left: 1rem;
+    width: calc(100% - 3rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__Name,
+  &__Message {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__Name {
+    margin-bottom: .25rem;
+    font-weight: 600;
+  }
+}

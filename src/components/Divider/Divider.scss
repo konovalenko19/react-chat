@@ -1,0 +1,31 @@
+.Divider {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  
+  &:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #eee;
+  }
+
+  &--Sticky {
+    position: sticky;
+    top: 0;
+  }
+
+  &__Text {
+    margin: auto;
+    background-color: #eee;
+    padding: .5rem;
+    border-radius: 10px;
+    color: #222;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+}

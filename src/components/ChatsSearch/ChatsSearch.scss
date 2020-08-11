@@ -1,0 +1,15 @@
+.ChatsSearch {
+  display: flex;
+  flex-direction: row;
+
+  &__Input {
+    background-color: #e1dfdf;
+    transition: background-color 0.218s ease, box-shadow .218s ease;
+
+    &.InputWrapper--Focused {
+      background-color: #fff;
+      box-shadow: 0 1px 5px rgba(0,0,0,.15);
+    }
+
+  }
+}

@@ -1,0 +1,35 @@
+.Message {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1rem;
+  align-items: center;
+
+  &--Left {
+    justify-content: flex-start;
+  }
+
+  &--Right {
+    justify-content: flex-end;
+  }
+
+  &__Text {
+    border-radius: 10px;
+    padding: .5rem;
+    max-width: 85%;
+  }
+
+  &__Time {
+    padding: 0 .5rem;
+    color: #ccc;
+    font-size: .8rem;
+  }
+
+  &--Left &__Text {
+    background-color: #ddd;
+  }
+
+  &--Right &__Text {
+    background-color: lightblue;
+    order: 2;
+  }
+}

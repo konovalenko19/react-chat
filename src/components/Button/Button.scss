@@ -1,0 +1,109 @@
+.WaterChatButton {
+  display: inline-flex;
+  width: auto;
+  max-width: 100%;
+  margin: 0;
+  padding: 12px 12px;
+  border-radius: 6px;
+  border: 0;
+  box-sizing: border-box;
+  outline: 0;
+
+  font-size: inherit;
+  font-style: normal;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+
+  cursor: pointer;
+  vertical-align: middle;
+
+
+  &--Contained {}
+
+  &--Outlined {
+    border: 1px solid;
+  }
+
+  &--Text {}
+
+
+
+  &--fullWidth {
+    width: 100%;
+  }
+}
+
+
+.WaterChatButton--ContainedBlue {
+  background-color: #0062e9;
+  color: #fff;
+}
+.WaterChatButton--OutlinedBlue {
+  background-color: #fff;
+  border-color: #0062e9;
+  color: #1951a2;
+}
+.WaterChatButton--TextBlue {
+  background-color: transparent;
+  color: #1951a2;
+  
+  &:hover {
+    background-color: #eff5fc;
+  }
+}
+
+.WaterChatButton--ContainedWhite {
+  background-color: #fff;
+  color: #1951a2;
+}
+.WaterChatButton--OutlinedWhite {
+  background-color: transparent;
+  border-color: #fff;
+  color: #fff;
+}
+.WaterChatButton--TextWhite {
+  background-color: transparent;
+  color: #fff;
+}
+
+
+
+.WaterChatButton__Inner {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  align-self: center;
+  flex-basis: 100%;
+
+  &--ContentCenter {
+    justify-content: center;
+  }
+
+  &--ContentSpaceAround {
+    justify-content: space-around;
+  }
+
+  &--ContentSpaceBetween {
+    justify-content: space-between;
+  }
+}
+
+
+.WaterChatButton__Icon {
+  display: flex;
+  align-self: center;
+  flex-shrink: 0;
+  user-select: none;
+  margin: 0 .25rem;
+}
+
+
+.WaterChatButton__Label {
+  align-items: baseline;
+  align-self: baseline;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0 .25rem;
+  overflow: hidden;
+}

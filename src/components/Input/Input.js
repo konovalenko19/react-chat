@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
+import classnames from "classnames";
 
-import styles from "./Input.module.scss";
+import "./Input.scss";
 
 const Input = props => {
   const {
@@ -14,27 +15,33 @@ const Input = props => {
     isErrored = false,
     isDisabled = false,
     isLoading = false,
-
+    fullWidth = false,
+    autoFocus = false,
+    className,
+    onFocus,
+    onBlur = () => {},
     ...other
   } = props;
 
-  const contentClasses = [ styles.icon ];
-  withDivider && contentClasses.push(styles.iconWithDivider);
-
-  const inputClasses = [ styles.input ];
-  isDisabled && inputClasses.push(styles.inputDisabled);
-
-  const inputWrapperClasses = [ styles.wrapper ];
-  isDisabled && inputWrapperClasses.push(styles.inputDisabled);
-  isErrored && inputWrapperClasses.push(styles.wrapperErrored);
-  isLoading && inputWrapperClasses.push(styles.wrapperLoading);
+  const [isFocused, setFocus] = useState(autoFocus);
 
   return (
-    <div className={inputWrapperClasses.join(" ")}>
+    <div className={classnames(
+      "InputWrapper",
+      isDisabled && "InputWrapper--Disabled",
+      isErrored && "InputWrapper--Errored",
+      isLoading && "InputWrapper--Loading",
+      fullWidth && "InputWrapper--FullWidth",
+      isFocused && "InputWrapper--Focused",
+      className && className,
+    )}>
 
       {contentLeft &&
         <span
-          className={contentClasses.join(" ")}
+          className={classnames(
+            "InputIcon",
+            withDivider && "InputIcon--WithDivider",
+          )}
           {...contentLeftProps}>
           {contentLeft}
         </span>
@@ -42,14 +49,29 @@ const Input = props => {
 
       <input
         type={type}
-        className={inputClasses.join(" ")}
+        className={classnames(
+          "Input",
+          isDisabled && "Input--Disabled",
+        )}
         disabled={isDisabled}
+        autoFocus={autoFocus}
+        onFocus={(e) => {
+          setFocus(true);
+          typeof onFocus === "function" && onFocus(e);
+        }}
+        onBlur={(e) => {
+          setFocus(false);
+          onBlur(e);
+        }}
         {...other}
       />
 
       {contentRight &&
         <span
-          className={ contentClasses.join(" ")}
+          className={classnames(
+            "InputIcon",
+            withDivider && "InputIcon--WithDivider",
+          )}
           {...contentRightProps}>
           {contentRight}
         </span>
@@ -69,6 +91,10 @@ Input.propTypes = {
   isErrored: PropTypes.bool,
   isDisabled: PropTypes.bool,
   isLoading: PropTypes.bool,
+  fullWidth: PropTypes.bool,
+  autoFocus: PropTypes.bool,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func,
   other: PropTypes.object,
 };
 

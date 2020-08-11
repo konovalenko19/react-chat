@@ -1,48 +1,59 @@
 import React from "react";
 import PropTypes from "prop-types";
+import classnames from "classnames";
 
-import styles from "./Button.module.scss";
+import { capitalize } from "../../utils";
+
+import "./Button.scss";
 
 const Button = props => {
   const {
     component: Component = "button",
-    classes,
     className,
     children,
+
     type = "button",
+    variant = "contained",
+    color = "blue",
+    justify = "center",
+    fullWidth = false,
+
     iconStart,
     iconEnd,
-    justifyContent = "Center",
+
     ...other
   } = props;
-
-  const wrapperClasses = [
-    styles.wrapper,
-    styles["wrapper" + justifyContent],
-  ];
 
   return (
     <Component
       type={type}
-      className={styles.root}
+      className={classnames(
+        "WaterChatButton",
+        `WaterChatButton--${capitalize(variant)}`,
+        `WaterChatButton--${capitalize(variant) + capitalize(color)}`,
+        fullWidth && "WaterChatButton--fullWidth",
+      )}
       {...other}>
 
-      <span className={wrapperClasses.join(" ")}>
+      <span className={classnames(
+        "WaterChatButton__Inner",
+        `WaterChatButton__Inner--Content${capitalize(justify)}`,
+      )}>
 
         {iconStart &&
-          <span className={styles.icon}>
+          <span className="WaterChatButton__Icon">
             {iconStart}
           </span>
         }
 
         {children &&
-          <span className={styles.text}>
+          <span className="WaterChatButton__Label">
             {children}
           </span>
         }
 
         {iconEnd &&
-          <span className={styles.icon}>
+          <span className="WaterChatButton__Icon">
             {iconEnd}
           </span>
         }
@@ -54,15 +65,17 @@ const Button = props => {
 
 Button.propTypes = {
   component: PropTypes.string,
-  classes: PropTypes.array,
   className: PropTypes.string,
   children: PropTypes.node,
 
   type: PropTypes.string,
+  variant: PropTypes.oneOf(["text", "outlined", "contained"]),
+  color: PropTypes.oneOf(["blue", "white"]),
+  justify: PropTypes.oneOf(["center", "space-around", "space-between"]),
+  fullWidth: PropTypes.bool,
+
   iconStart: PropTypes.node,
   iconEnd: PropTypes.node,
-
-  justifyContent: PropTypes.oneOf(["Center", "SpaceAround", "SpaceBetween"]),
 
   other: PropTypes.object,
 };

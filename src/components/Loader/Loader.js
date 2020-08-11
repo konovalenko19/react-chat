@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import colors from '../../utils/colors';
+import { hexToRgba } from '../../utils';
 
 import styles from './Loader.module.scss';
 
@@ -20,7 +20,7 @@ const Loader = props => {
         style={{
           minWidth: size,
           minHeight: size,
-          borderColor: colors.hexToRgba(color, 0.2),
+          borderColor: hexToRgba(color, 0.2),
           borderTopColor: color,
         }}
       />
@@ -28,7 +28,7 @@ const Loader = props => {
       {children &&
         <div
           className={inline ? styles.messageInline : styles.message}
-          style={{ color: colors.hexToRgba(color, 0.9) }}>
+          style={{ color: hexToRgba(color, 0.9) }}>
           {children}
         </div>
       }

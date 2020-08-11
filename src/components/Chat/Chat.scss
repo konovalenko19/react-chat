@@ -1,0 +1,32 @@
+.Chat {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &__Top {
+    min-height: 3rem;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px solid #ececec;
+
+    &__Name {
+      flex-grow: 1;
+    }
+  }
+
+  &__Center {
+    flex-grow: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    position: relative;
+    background-color: #fff;
+  }
+
+  &__Bottom {
+    min-height: 4rem;
+    padding: 1rem;
+    border-top: 1px solid #ececec;
+  }
+}
